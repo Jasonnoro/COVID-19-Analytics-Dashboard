@@ -119,6 +119,17 @@
           insight += `Vaccination data may show sudden jumps due to batch reporting or large-scale vaccination drives. `;
           insight += `Trends help show how quickly a population is being vaccinated over time. `;
         }
+        else if(metric === "vaccinations_per_hundred"){
+          insight += `Vaccinations per hundred shows the percentage of the population vaccinated. `;
+          insight += `Values above 100 are possible as some people receive multiple doses. `;
+          insight += `This metric is useful for comparing vaccination coverage across countries of different sizes. `;
+        }
+
+        else if(metric === "cases_per_million"){
+          insight += `Cases per million normalizes case counts by population size. `;
+          insight += `This allows fair comparison between large and small countries. `;
+          insight += `A rising trend here suggests widespread community transmission relative to population. `;
+        }
 
         // Design choices
         insight += `A line chart is used to clearly show trends over time. `;

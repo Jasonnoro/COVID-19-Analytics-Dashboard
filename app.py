@@ -1,6 +1,8 @@
 from flask import Flask, render_template,request,jsonify
-from Assignment_4 import df
-import plotly.express as px
+import pandas as pd
+
+#Read cleaned data
+df = pd.read_csv("cleaned_covid_data.csv", parse_dates=['date'])
 
 #Create app.py with a root route ('/') that renders templates/index.html.
 app=Flask(__name__)
@@ -17,15 +19,7 @@ def index():
   if metric not in valid_metrics:
     metric = 'new_cases'
 
-  filtered_df=df[df['country']==country]
-  filtered_df = filtered_df.sort_values('date')
-
-  fig=px.line(filtered_df,x='date',y=metric, title=f"{country} - {metric}")
-
-  graph=fig.to_html(full_html=False)
-
   return render_template("index.html",
-                         graph=graph,
                          countries=df['country'].unique(),
                          start_date=df['date'].min(),
                          end_date=df['date'].max(),

@@ -11,10 +11,14 @@ df['new_vaccinations']=df['new_vaccinations'].fillna(0)
 
 '''
 -> Justification: Chose to fill the 'new_vaccinations' with the default value 0, since missing 
-entries likely indicate no vaccination records for this date. 
+    entries likely indicate no vaccination records for this date. 
 -> Sensible to fill the value rather than dropping as it avoids removing rows and preserves the dataset.
 -> However, this data may introduce bias, if missing records do not truly represent 0 vaccinations. 
 -> The data solely focuses on COVID cases and vaccinations received so far.
+
+-> For outliers: spike values in new_cases and new_vaccinations are retained intentionally,
+   as they likely reflect real-world events (e.g.mass vaccination drives)rather than data errors. 
+   Removing them would misrepresent actual trends.
 '''
 df.to_csv("cleaned_covid_data.csv", index=False)
 
