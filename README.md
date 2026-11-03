@@ -109,7 +109,7 @@ The endpoint returns filtered observations in JSON format, which the frontend us
 
 ## Project Structure
 
-
+```text
 Pandemic-Trends-Explorer/
 │
 ├── src/
@@ -128,7 +128,7 @@ Pandemic-Trends-Explorer/
 │
 ├── requirements.txt
 └── README.md
-
+```
 
 ## Key Learning Outcomes
 
